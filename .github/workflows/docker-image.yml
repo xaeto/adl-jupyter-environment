@@ -20,7 +20,8 @@ jobs:
     name: Build Images
     runs-on: ubuntu-latest
     permissions:
-      packages: write
+     contents: 'read'
+     id-token: 'write'
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
@@ -68,7 +69,8 @@ jobs:
   merge:
     runs-on: ubuntu-latest
     permissions:
-      packages: write
+     contents: 'read'
+     id-token: 'write'
     needs:
       - build
     steps:
