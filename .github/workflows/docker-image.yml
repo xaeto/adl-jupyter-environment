@@ -15,11 +15,12 @@ env:
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
   REGISTRY_IMAGE: jannikbrozy/adl-jupyter-environment
-
 jobs:
   build:
     name: Build Images
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
@@ -66,6 +67,8 @@ jobs:
           retention-days: 1
   merge:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
     needs:
       - build
     steps:
