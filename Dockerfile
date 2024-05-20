@@ -1,7 +1,6 @@
 # Use an official Python runtime as a parent image
-FROM ubuntu:20.04
+FROM python:3.9
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && apt-get install -y python3 python3-dev python3-pip
 
 # Set the working directory to /app
 WORKDIR /app
@@ -10,7 +9,7 @@ WORKDIR /app
 COPY ./requirements.txt .
 
 # Install any needed packages specified in requirements.txt
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
 
 # Make port 8888 available to the world outside this container
 EXPOSE 8888
