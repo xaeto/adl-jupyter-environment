@@ -14,7 +14,7 @@ env:
   # REGISTRY: ${{ env.REGISTRY }}
   # github.repository as <account>/<repo>
   IMAGE_NAME: ${{ github.repository }}
-  REGISTRY_IMAGE: jannikbrozy/adl-jupyter-environment
+  REGISTRY_IMAGE: ${{ vars.DOCKER_IMG_URL }}
 jobs:
   build:
     name: Build Images
